@@ -1,4 +1,5 @@
 # 🛡️ SafeCircle
+🔗 [View Demo Website](https://safe-circle-self.vercel.app/)
 
 **SafeCircle** is a women's safety and awareness website built to provide quick access to help, support, and empowerment. With features like 24/7 affirmations, an SOS alert system, safety shelter maps, and a hidden emergency calculator, SafeCircle is designed for real-time action and discretion.
 
