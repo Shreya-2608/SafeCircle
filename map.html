@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SafeCircle - Safety Shelter Map</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff0f5;
+    }
+    h1 {
+      text-align: center;
+      margin: 1rem 0;
+      color: #e91e63;
+    }
+    #map {
+      height: 90vh;
+      width: 90vw;
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1>🗺️ Safety Shelters in India</h1>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin=""
+  ></script>
+
+  <!-- Your shelter data -->
+  <script src="stations.js"></script>
+
+  <script>
+    // Initialize the map centered on India
+    const map = L.map('map').setView([22.5937, 78.9629], 5);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Plot each shelter from stations.js
+    shelters.forEach(shelter => {
+      const marker = L.marker([shelter.latitude, shelter.longitude]).addTo(map);
+      marker.bindPopup(`
+        <b>${shelter.name || 'Unnamed Station'}</b><br>
+        ${shelter.address || 'No address available'}<br>
+        ${shelter.phone ? `📞 ${shelter.phone}` : ''}
+      `);
+    });
+  </script>
+</body>
+</html>

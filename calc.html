@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hidden Calculator - SafeCircle</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #2a0d1a;
+      margin: 0;
+    }
+    .calculator {
+      background: #430939;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff66cc;
+      padding: 20px;
+      width: 280px;
+    }
+    .display {
+      width: 100%;
+      height: 50px;
+      background: #2c0a23;
+      color: #ff99cc;
+      font-size: 28px;
+      border-radius: 8px;
+      text-align: right;
+      padding: 10px;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+      user-select: none;
+      margin-bottom: 15px;
+      border: 1px solid #ff66cc;
+      letter-spacing: 1px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    button {
+      background: #66004d;
+      border: none;
+      border-radius: 8px;
+      color: #ff99cc;
+      font-size: 20px;
+      padding: 15px 0;
+      cursor: pointer;
+      font-family: monospace;
+      box-shadow: inset 0 -3px 0 #aa0077;
+      transition: background 0.2s ease;
+    }
+    button:hover {
+      background: #ff66cc;
+      color: #330014;
+      box-shadow: none;
+    }
+    button:active {
+      background: #cc3388;
+      color: #fff;
+      box-shadow: inset 0 3px 0 #ff99cc;
+    }
+    button.equals {
+      grid-column: span 4;
+      background: #ff66cc;
+      color: #330014;
+      font-weight: bold;
+    }
+    button.equals:hover {
+      background: #ff4db8;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <div id="display" class="display">0</div>
+  <div class="buttons">
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('/')">÷</button>
+
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('*')">×</button>
+
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('-')">−</button>
+
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="press('+')">+</button>
+
+    <button class="equals" onclick="calculate()">=</button>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById('display');
+  let currentInput = '';
+
+  function press(val) {
+    if (val === '.' && currentInput.endsWith('.')) return;
+
+    if (currentInput === '0' && val !== '.') {
+      currentInput = val;
+    } else {
+      currentInput += val;
+    }
+    display.textContent = currentInput;
+  }
+
+  function clearDisplay() {
+    currentInput = '';
+    display.textContent = '0';
+  }
+
+  const SOS_CODE = '100';
+
+  function calculate() {
+    const inputTrim = currentInput.trim();
+
+    if (inputTrim === SOS_CODE) {
+      sendSOS();
+      display.textContent = 'Error';
+      currentInput = '';
+      return;
+    }
+
+    try {
+      let result = eval(currentInput.replace(/÷/g, '/').replace(/×/g, '*'));
+      if (result === undefined) result = 'Error';
+      display.textContent = result;
+      currentInput = result.toString();
+    } catch {
+      display.textContent = 'Error';
+      currentInput = '';
+    }
+  }
+
+  function sendSOS() {
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfV3c9eClI7T7ausZbCmFBlLOtPppBkHmB17tlQ488l6IWoYw/formResponse?usp=header';
+
+    const data = new URLSearchParams({
+      'entry.1446030093': 'SOS from Hidden Calculator',
+      'entry.915677884': 'User Location or Info',
+      'entry.1753159923': new Date().toISOString(),
+    });
+
+    fetch(FORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: data.toString(),
+    }).catch(err => {
+      console.error('SOS sending failed', err);
+    });
+  }
+</script>
+
+</body>
+</html>

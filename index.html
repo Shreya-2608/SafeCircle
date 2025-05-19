@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SafeCircle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>👩‍🦰 SafeCircle</h1>
+      <p class="tagline">Empowering women with tools for safety, support, and strength.</p>
+    </header>
+
+    <section class="stats-section">
+      <h2>📊 Safety Statistics</h2>
+      <div class="stats-cards">
+        <div class="stat-card pink">
+          <h3>🚨 1 in 3</h3>
+          <p>Women experience public harassment in India</p>
+        </div>
+        <div class="stat-card purple">
+          <h3>👣 88%</h3>
+          <p>Feel unsafe walking alone at night</p>
+        </div>
+        <div class="stat-card teal">
+          <h3>👮 15,000+</h3>
+          <p>Police stations across the country</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="buttons-section">
+      <a href="map.html" class="btn map-btn">🗺️ View Safety Shelter Map</a>
+      <a href="sos.html" class="btn sos-btn">🆘 SOS Alert</a>
+      <button class="btn calc-btn" onclick="openCalculator()">🧮 Calculator</button>
+    </section>
+
+    <section class="affirmation-section">
+      <div id="affirmation-box">💬 Click “Inspire Me” for an affirmation</div>
+      <button class="btn affirm-btn" onclick="showAffirmation()">✨ Inspire Me</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    function openCalculator() {
+      window.open('calc.html', '_blank');
+    }
+  </script>
+</body>
+</html>

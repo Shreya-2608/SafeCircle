@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeCircle SOS</title>
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #e91e63;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚨 Send SOS Alert</h1>
+  <form id="sosForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="location" placeholder="Your Location" required>
+    <textarea id="message" placeholder="Describe the emergency..." required></textarea>
+    <button type="submit">Send SOS</button>
+  </form>
+
+  <script>
+    document.getElementById("sosForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const location = document.getElementById("location").value;
+      const message = document.getElementById("message").value;
+
+      const formData = new FormData();
+      formData.append("entry.1446030093", name);      // Replace with your actual Name field ID
+      formData.append("entry.915677884", location);  // Replace with your actual Location field ID
+      formData.append("entry.1753159923", message);   // Replace with your actual Message field ID
+
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLSfV3c9eClI7T7ausZbCmFBlLOtPppBkHmB17tlQ488l6IWoYw/formResponse?usp=header", {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      })
+      .then(() => {
+        alert("🚨 SOS sent successfully!");
+        document.getElementById("sosForm").reset();
+      })
+      .catch(() => {
+        alert("❌ Failed to send SOS.");
+      });
+    });
+  </script>
+
+</body>
+</html>
