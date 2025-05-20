@@ -1,204 +1,134 @@
-/* General body styles */
+/* === Global Styles === */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff0f5;
   margin: 0;
-  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff0f5;
   color: #333;
+  line-height: 1.6;
+  padding: 0 20px;
 }
 
-/* Container to center content */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Header styles */
-header h1 {
-  font-size: 3rem;
-  color: #e91e63;
-  margin-bottom: 0.1em;
-}
-
-.tagline {
-  font-size: 1.2rem;
-  color: #8e8e8e;
-  margin-bottom: 2em;
-  font-style: italic;
-}
-
-/* Stats section */
-.stats-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1em;
-  color: #d81b60;
-}
-
-/* Cards container */
-.stats-cards {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-/* Individual stat card */
-.stat-card {
-  flex: 1 1 250px;
-  background: white;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 15px rgba(233, 30, 99, 0.25);
-  transition: transform 0.3s ease;
-  cursor: default;
-}
-
-.stat-card:hover {
-  transform: translateY(-10px);
-}
-
-/* Card colors */
-.stat-card.pink {
-  background: #fce4ec;
-  color: #ad1457;
-}
-
-.stat-card.purple {
-  background: #ede7f6;
-  color: #512da8;
-}
-
-.stat-card.teal {
-  background: #e0f2f1;
-  color: #00695c;
-}
-
-/* Card heading */
-.stat-card h3 {
+/* === Headings === */
+h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Card paragraph */
-.stat-card p {
-  font-size: 1.1rem;
-}
-
-/* Buttons section */
-.buttons-section {
-  margin: 3rem 0 2rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 30px;
   font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: white;
-  margin: 0 15px 15px 15px;
-  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
-  transition: background 0.3s ease;
+  color: #cc0066;
+  margin-top: 40px;
 }
 
-.map-btn {
-  background: #e91e63;
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #99004d;
+  margin-top: 30px;
 }
 
-.map-btn:hover {
-  background: #c2185b;
+p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
-.sos-btn {
-  background: #d32f2f;
+/* === Buttons Section === */
+.buttons-section {
+  margin: 40px 0;
 }
 
-.sos-btn:hover {
-  background: #b71c1c;
-}
-
-/* Affirmation section */
-.affirmation-section {
-  margin-top: 2rem;
-}
-
-#affirmation-box {
-  background: #fce4ec;
-  color: #ad1457;
-  padding: 20px 30px;
-  border-radius: 30px;
-  font-style: italic;
-  font-size: 1.3rem;
-  max-width: 400px;
-  margin: 0 auto 15px;
-  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.25);
-}
-
-.affirm-btn {
-  background: #ad1457;
-  border: none;
-  cursor: pointer;
-}
-
-.affirm-btn:hover {
-  background: #880e4f;
-  color: #fff;
-}
-/* General button styling (you might already have this, adjust colors) */
+/* === Buttons: General Styling === */
 .btn {
   display: inline-block;
   padding: 12px 25px;
   margin: 10px 10px 10px 0;
   text-decoration: none;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 50px;
   font-size: 18px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  box-shadow: 0 0 8px #ff66cc99;
+  box-shadow: 0 0 10px #ff99cc88;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Pink style for calculator button */
-.calc-btn {
-  background-color: #ff66cc;
-  color: #330014;
-  border: 2px solid #ff33aa;
-  box-shadow: 0 0 15px #ff33aa88;
+/* Shine effect on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  transform: skewX(-20deg);
+  transition: 0.5s;
 }
 
-.calc-btn:hover,
-.calc-btn:focus {
-  background-color: #ff33aa;
-  color: white;
-  box-shadow: 0 0 25px #ff33aa;
+.btn:hover::after {
+  left: 125%;
 }
 
-/* Optional: consistent pink styling for other buttons */
+/* Scale on hover */
+.btn:hover {
+  transform: scale(1.05);
+}
 
+/* === Map Button === */
 .map-btn {
   background-color: #cc3399;
   color: #fff;
   border: 2px solid #ff66cc;
-  box-shadow: 0 0 12px #ff66cc88;
 }
 
 .map-btn:hover {
   background-color: #ff66cc;
   color: #330014;
-  box-shadow: 0 0 20px #ff66cc;
 }
 
+/* === SOS Button === */
 .sos-btn {
   background-color: #e60073;
   color: #fff;
   border: 2px solid #ff33aa;
-  box-shadow: 0 0 12px #ff33aa88;
 }
 
 .sos-btn:hover {
   background-color: #ff33aa;
   color: #330014;
-  box-shadow: 0 0 20px #ff33aa;
+}
+
+/* === Call Button === */
+.calc-btn {
+  background-color: #ff66b2;
+  color: #fff;
+  border: 2px solid #ff99cc;
+}
+
+.calc-btn:hover {
+  background-color: #ff99cc;
+  color: #330014;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
 }
