@@ -1,203 +1,215 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff0f5;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #fff0f5);
   margin: 0;
-  padding: 20px;
-  color: #333;
+  padding: 30px 20px;
+  color: #444;
 }
 
-/* Container to center content */
 .container {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  padding: 10px 20px;
 }
 
-/* Header styles */
+/* Header */
 header h1 {
-  font-size: 3rem;
-  color: #e91e63;
-  margin-bottom: 0.1em;
+  font-size: 3.5rem;
+  color: #ff4081; /* brighter pink */
+  margin-bottom: 0.2em;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 5px #ffc1e3;
+  font-family: 'Baloo 2', cursive;
 }
 
 .tagline {
-  font-size: 1.2rem;
-  color: #8e8e8e;
-  margin-bottom: 2em;
+  font-size: 1.3rem;
+  color: #a982b9; /* soft purple */
+  margin-bottom: 2.5em;
   font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
-/* Stats section */
+/* Stats Section */
 .stats-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1em;
-  color: #d81b60;
+  font-size: 2.2rem;
+  margin-bottom: 1.2em;
+  color: #ba68c8; /* medium purple */
+  text-shadow: 1px 1px 3px #e1bee7;
 }
 
-/* Cards container */
+/* Cards container with gap and wrap */
 .stats-cards {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.8rem;
   flex-wrap: wrap;
 }
 
 /* Individual stat card */
 .stat-card {
-  flex: 1 1 250px;
-  background: white;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 15px rgba(233, 30, 99, 0.25);
-  transition: transform 0.3s ease;
+  flex: 1 1 260px;
+  background: linear-gradient(145deg, #fff0f5, #ffd6e8);
+  border-radius: 25px;
+  padding: 2.5rem 2rem;
+  box-shadow:
+    0 6px 8px rgba(255, 105, 180, 0.15),
+    inset 0 -3px 8px #fff8f8;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: default;
+  position: relative;
 }
 
 .stat-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px) scale(1.05);
+  box-shadow:
+    0 14px 30px rgba(255, 105, 180, 0.35),
+    inset 0 -5px 15px #fff0f8;
 }
 
-/* Card colors */
+/* Card color variants with pastel gradients */
 .stat-card.pink {
-  background: #fce4ec;
+  background: linear-gradient(135deg, #fce4ec, #ffd1e6);
   color: #ad1457;
+  box-shadow: 0 8px 18px #f48fb1aa;
 }
 
 .stat-card.purple {
-  background: #ede7f6;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
   color: #512da8;
+  box-shadow: 0 8px 18px #9575cdaa;
 }
 
 .stat-card.teal {
-  background: #e0f2f1;
+  background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
   color: #00695c;
+  box-shadow: 0 8px 18px #4db6acaa;
 }
 
 /* Card heading */
 .stat-card h3 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.7rem;
+  margin-bottom: 0.6rem;
+  font-weight: 800;
+  text-shadow: 1px 1px 4px #f8bbd0;
 }
 
 /* Card paragraph */
 .stat-card p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #555;
 }
 
 /* Buttons section */
 .buttons-section {
-  margin: 3rem 0 2rem;
+  margin: 4rem 0 3rem;
 }
 
+/* General button style */
 .btn {
   display: inline-block;
-  padding: 15px 30px;
-  border-radius: 30px;
+  padding: 16px 36px;
+  border-radius: 35px;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-decoration: none;
   color: white;
-  margin: 0 15px 15px 15px;
-  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
-  transition: background 0.3s ease;
+  margin: 0 18px 18px 18px;
+  box-shadow:
+    0 6px 15px rgba(255, 105, 180, 0.45);
+  transition: background 0.4s ease, transform 0.25s ease;
+  cursor: pointer;
+  font-family: 'Baloo 2', cursive;
+  user-select: none;
 }
 
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 10px 25px rgba(255, 105, 180, 0.7);
+}
+
+/* Specific button colors */
 .map-btn {
-  background: #e91e63;
+  background: #ff4081;
+  border: 2px solid #f50057;
+  box-shadow: 0 6px 18px #ff80abaa;
 }
 
 .map-btn:hover {
-  background: #c2185b;
+  background: #f50057;
+  border-color: #ff1744;
+  color: #fff0f5;
 }
 
 .sos-btn {
-  background: #d32f2f;
+  background: #e91e63;
+  border: 2px solid #d81b60;
+  box-shadow: 0 6px 18px #f48fb1aa;
 }
 
 .sos-btn:hover {
-  background: #b71c1c;
+  background: #c2185b;
+  border-color: #880e4f;
+  color: #fff0f5;
 }
 
 /* Affirmation section */
 .affirmation-section {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 #affirmation-box {
-  background: #fce4ec;
+  background: linear-gradient(135deg, #ffd1e6, #fce4ec);
   color: #ad1457;
-  padding: 20px 30px;
-  border-radius: 30px;
+  padding: 22px 35px;
+  border-radius: 40px;
   font-style: italic;
-  font-size: 1.3rem;
-  max-width: 400px;
-  margin: 0 auto 15px;
-  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.25);
+  font-size: 1.35rem;
+  max-width: 420px;
+  margin: 0 auto 20px;
+  box-shadow:
+    0 8px 20px rgba(233, 30, 99, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
 }
 
 .affirm-btn {
   background: #ad1457;
   border: none;
   cursor: pointer;
+  padding: 14px 32px;
+  border-radius: 35px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: white;
+  box-shadow: 0 6px 20px #ff4da6cc;
+  transition: background 0.3s ease;
 }
 
 .affirm-btn:hover {
   background: #880e4f;
   color: #fff;
 }
-/* General button styling (you might already have this, adjust colors) */
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  margin: 10px 10px 10px 0;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  font-size: 18px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 0 8px #ff66cc99;
-}
 
-/* Pink style for calculator button */
-.calc-btn {
-  background-color: #ff66cc;
-  color: #330014;
-  border: 2px solid #ff33aa;
-  box-shadow: 0 0 15px #ff33aa88;
-}
-
-.calc-btn:hover,
-.calc-btn:focus {
-  background-color: #ff33aa;
-  color: white;
-  box-shadow: 0 0 25px #ff33aa;
-}
-
-/* Optional: consistent pink styling for other buttons */
-
-.map-btn {
-  background-color: #cc3399;
-  color: #fff;
-  border: 2px solid #ff66cc;
-  box-shadow: 0 0 12px #ff66cc88;
-}
-
-.map-btn:hover {
-  background-color: #ff66cc;
-  color: #330014;
-  box-shadow: 0 0 20px #ff66cc;
-}
-
-.sos-btn {
-  background-color: #e60073;
-  color: #fff;
-  border: 2px solid #ff33aa;
-  box-shadow: 0 0 12px #ff33aa88;
-}
-
-.sos-btn:hover {
-  background-color: #ff33aa;
-  color: #330014;
-  box-shadow: 0 0 20px #ff33aa;
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .stats-cards {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .stat-card {
+    padding: 2rem 1.5rem;
+  }
+  header h1 {
+    font-size: 2.8rem;
+  }
+  .buttons-section {
+    margin: 3rem 0 2rem;
+  }
 }
