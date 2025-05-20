@@ -9,3 +9,4 @@ function showAffirmation() {
   const random = Math.floor(Math.random() * affirmations.length);
   document.getElementById("affirmation-box").innerText = affirmations[random];
 }
+lucide.createIcons();
