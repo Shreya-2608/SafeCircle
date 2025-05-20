@@ -147,7 +147,7 @@ header h1 {
 }
 
 .sos-btn {
-  background: #e91e63;
+  background: #ff69b4;
   border: 2px solid #d81b60;
   box-shadow: 0 6px 18px #f48fb1aa;
 }
@@ -157,6 +157,20 @@ header h1 {
   border-color: #880e4f;
   color: #fff0f5;
 }
+.calc-btn {
+  background-color: #e91e63;
+  color: #fff;
+  border: 2px solid #ff4c8b;
+  box-shadow: 0 0 15px #ff4c8b88;
+}
+
+.calc-btn:hover,
+.calc-btn:focus {
+  background-color: #ff4c8b;
+  box-shadow: 0 0 25px #ff4c8b;
+  color: white;
+}
+
 
 /* Affirmation section */
 .affirmation-section {
@@ -213,3 +227,126 @@ header h1 {
     margin: 3rem 0 2rem;
   }
 }
+/* Why SafeCircle */
+.why-section h2,
+.tips-section h2,
+.did-you-know h2,
+.stories-section h2 {
+  color: #ba68c8;
+  font-family: 'Baloo 2', cursive;
+  margin-bottom: 1em;
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 1px 1px 3px #e1bee7;
+}
+
+.why-list,
+.tips-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  text-align: left;
+  color: #555;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.why-list li,
+.tips-list li {
+  margin-bottom: 1rem;
+  padding-left: 30px;
+  position: relative;
+}
+
+.why-list li::before,
+.tips-list li::before {
+  content: "🌸";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.3rem;
+  transform: translateY(3px);
+}
+
+/* Did You Know box */
+.did-you-know {
+  background: #fce4ec;
+  border-radius: 30px;
+  padding: 20px 30px;
+  color: #ad1457;
+  max-width: 500px;
+  margin: 2rem auto 3rem;
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(233, 30, 99, 0.2);
+}
+
+/* Real Stories */
+.stories-section {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: left;
+  color: #444;
+}
+
+.stories-section blockquote {
+  background: #fdeef8;
+  border-left: 6px solid #ff80ab;
+  padding: 15px 20px;
+  margin: 1.2rem 0;
+  border-radius: 15px;
+  font-style: italic;
+  font-weight: 600;
+  box-shadow: 0 4px 12px #ff80ab66;
+  color: #7b2d60;
+  font-family: 'Baloo 2', cursive;
+}
+
+/* Adjust blockquote quotes */
+.stories-section blockquote::before {
+  content: "“";
+  font-size: 2.5rem;
+  line-height: 0;
+  vertical-align: top;
+  color: #ff80ab;
+  margin-right: 6px;
+}
+.did-you-know {
+  background: #fce4ec;
+  border-radius: 30px;
+  padding: 20px 30px;
+  color: #ad1457;
+  max-width: 500px;
+  margin: 2rem auto 3rem;
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(233, 30, 99, 0.2);
+  position: relative;
+  height: 4.5rem; /* fixed height for smooth transition */
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+}
+
+.carousel-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  position: relative;
+}
+
